@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterNumsLangParser", "PrinterNumsLangParser\PrinterNumsLangParser.csproj", "{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E03AE315-198F-49EC-B1D0-76318485C923}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPrinterNumsLangParser", "Tests\TestPrinterNumsLangParser\TestPrinterNumsLangParser.csproj", "{AE40024D-DC0A-48C1-A96C-097D75033642}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Debug|x64.Build.0 = Debug|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Debug|x86.Build.0 = Debug|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Release|x64.ActiveCfg = Release|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Release|x64.Build.0 = Release|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Release|x86.ActiveCfg = Release|Any CPU
+		{1AB67B7E-2D45-415F-B61C-8C7C1E987B6F}.Release|x86.Build.0 = Release|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Debug|x64.Build.0 = Debug|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Debug|x86.Build.0 = Debug|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Release|x64.ActiveCfg = Release|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Release|x64.Build.0 = Release|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Release|x86.ActiveCfg = Release|Any CPU
+		{AE40024D-DC0A-48C1-A96C-097D75033642}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AE40024D-DC0A-48C1-A96C-097D75033642} = {E03AE315-198F-49EC-B1D0-76318485C923}
+	EndGlobalSection
+EndGlobal
