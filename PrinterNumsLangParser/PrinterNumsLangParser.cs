@@ -4,7 +4,7 @@ using PrinterNumsLangParser.Exceptions;
 
 namespace PrinterNumsLangParser
 {
-    public class PrinterNumLangParser
+    public class PrinterNumsLangParser
     {
         private readonly string _input;
 
@@ -17,7 +17,7 @@ namespace PrinterNumsLangParser
         private int? _startBuf;
         private int? _endBuf;
 
-        private PrinterNumLangParser(string input)
+        private PrinterNumsLangParser(string input)
         {
             _input = input;
         }
@@ -150,7 +150,7 @@ namespace PrinterNumsLangParser
         {
             if (string.IsNullOrWhiteSpace(str))
                 throw new ArgumentException("Input is null or empty or whitespace", nameof(str));
-            return new PrinterNumLangParser(str).Parse();
+            return new PrinterNumsLangParser(str).Parse();
         }
 
         private enum State

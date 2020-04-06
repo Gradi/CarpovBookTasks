@@ -42,7 +42,7 @@ namespace TestPrinterNumsLangParser.Tests
         [TestCase("\n  \n\t")]
         public void ThrowsOnInvalidInput(string input)
         {
-            Assert.That(() => PrinterNumLangParser.Parse(input), Throws.TypeOf<ArgumentException>());
+            Assert.That(() => PrinterNumsLangParser.PrinterNumsLangParser.Parse(input), Throws.TypeOf<ArgumentException>());
         }
 
         [TestCase("1,")]
@@ -74,7 +74,7 @@ namespace TestPrinterNumsLangParser.Tests
         [TestCase("123, 123, asd")]
         public void ThrowsParserExceptionOnInvalidInput(string input)
         {
-            Assert.That(() => PrinterNumLangParser.Parse(input).ToList(), Throws.TypeOf<ParserException>());
+            Assert.That(() => PrinterNumsLangParser.PrinterNumsLangParser.Parse(input).ToList(), Throws.TypeOf<ParserException>());
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace TestPrinterNumsLangParser.Tests
         {
             foreach (var input in _validInputs)
             {
-                var actual = PrinterNumLangParser.Parse(input.Input);
+                var actual = PrinterNumsLangParser.PrinterNumsLangParser.Parse(input.Input);
                 CollectionAssert.AreEqual(input.Expected, actual, $"Input string was: \"{input.Input}\".");
             }
         }
