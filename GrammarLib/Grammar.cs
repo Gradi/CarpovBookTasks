@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GrammarLib.Extensions;
 
 namespace GrammarLib
 {
@@ -19,19 +20,24 @@ namespace GrammarLib
         internal Grammar
             (
                 NonTerminal startSymbol,
-                SymbolCollection terminals,
-                SymbolCollection nonTerminals,
                 IReadOnlyCollection<Production> productions
             )
         {
             StartSymbol = startSymbol ?? throw new ArgumentNullException(nameof(startSymbol));
-            Terminals = terminals ?? throw new ArgumentNullException(nameof(terminals));
-            NonTerminals = nonTerminals ?? throw new ArgumentNullException(nameof(nonTerminals));
-            AllSymbols = new SymbolCollection(new HashSet<Symbol>(nonTerminals.Concat(terminals)));
             Productions = productions ?? throw new ArgumentNullException(nameof(productions));
 
-            if (!nonTerminals.Contains(startSymbol))
-                throw new ArgumentException("NonTerminals collection must contain start symbol.");
+            var allSymbols = productions
+                .Select(p => p.Left.Concat(p.Right))
+                .Flatten()
+                .Append(StartSymbol)
+                .Distinct()
+                .ToList();
+            Terminals = new SymbolCollection(allSymbols.OfType<Terminal>());
+            NonTerminals = new SymbolCollection(allSymbols.OfType<NonTerminal>());
+            AllSymbols = new SymbolCollection(allSymbols);
+
+            if (!NonTerminals.Contains(startSymbol))
+                throw new ArgumentException("Collection of non terminals doesn't contain start symbol/non terminal.");
         }
 
         public bool Equals(Grammar other)

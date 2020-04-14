@@ -6,8 +6,6 @@ namespace GrammarLib.Builder
     public class GrammarBuilder : IProductionBuilder
     {
         private NonTerminal _startSymbol;
-        private readonly ICollection<Terminal> _terminals;
-        private readonly ICollection<NonTerminal> _nonTerminals;
         private readonly List<Production> _productions;
 
         private ICollection<Symbol> _fromSymbols;
@@ -16,8 +14,6 @@ namespace GrammarLib.Builder
 
         public GrammarBuilder()
         {
-            _terminals = new HashSet<Terminal>();
-            _nonTerminals = new HashSet<NonTerminal>();
             _productions = new List<Production>();
         }
 
@@ -28,7 +24,6 @@ namespace GrammarLib.Builder
             if (_startSymbol != null)
                 throw new InvalidOperationException("Can't set start non terminal twice.");
             _startSymbol = new NonTerminal(startNonTerminal);
-            _nonTerminals.Add(_startSymbol);
             return this;
         }
 
@@ -47,8 +42,6 @@ namespace GrammarLib.Builder
 
             var symbol = new Terminal(value);
             _currentSymbolsCollection.Add(symbol);
-            _terminals.Add(symbol);
-
             return this;
         }
 
@@ -56,9 +49,9 @@ namespace GrammarLib.Builder
         {
             if (value == null)
                 throw new ArgumentNullException(nameof(value));
+
             var symbol = new NonTerminal(value);
             _currentSymbolsCollection.Add(symbol);
-            _nonTerminals.Add(symbol);
             return this;
         }
 
@@ -77,7 +70,7 @@ namespace GrammarLib.Builder
         public Grammar Build()
         {
             ValidateAndThrow();
-            return new Grammar(_startSymbol, new SymbolCollection(_terminals), new SymbolCollection(_nonTerminals), _productions);
+            return new Grammar(_startSymbol, _productions);
         }
 
         private void ValidateAndThrow()
@@ -85,7 +78,5 @@ namespace GrammarLib.Builder
             if (_startSymbol == null)
                 throw new InvalidOperationException($"You need to call {nameof(StartIs)} to specify starting non terminal.");
         }
-
-
     }
 }

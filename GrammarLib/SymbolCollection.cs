@@ -50,10 +50,10 @@ namespace GrammarLib
 
         public static bool operator==(SymbolCollection left, SymbolCollection right)
         {
-            if (ReferenceEquals(left, null))
-                throw new ArgumentNullException(nameof(left));
-            if (ReferenceEquals(right, null))
-                throw new ArgumentNullException(nameof(right));
+            if (ReferenceEquals(left, null) && ReferenceEquals(right, null))
+                return true;
+            if (ReferenceEquals(left, null) || ReferenceEquals(right, null))
+                return false;
             return left.Equals(right);
         }
 
