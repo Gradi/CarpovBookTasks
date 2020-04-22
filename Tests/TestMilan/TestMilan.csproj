@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RomanNumbersParser\RomanNumbersParser.csproj" />
+    <ProjectReference Include="..\..\Milan\Milan.csproj" />
   </ItemGroup>
 
 </Project>

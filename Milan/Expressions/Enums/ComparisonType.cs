@@ -5,6 +5,7 @@ namespace Milan.Expressions.Enums
         Less,
         LessEqual,
         Equal,
+        NotEqual,
         Greater,
         GreaterEqual
     }

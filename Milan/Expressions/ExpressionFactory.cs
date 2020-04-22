@@ -9,6 +9,7 @@ namespace Milan.Expressions
         public static Expression Less(Expression left, Expression right) => new ComparisonExpression(ComparisonType.Less, left, right);
         public static Expression LessEqual(Expression left, Expression right) => new ComparisonExpression(ComparisonType.LessEqual, left, right);
         public static Expression Equal(Expression left, Expression right) => new ComparisonExpression(ComparisonType.Equal, left, right);
+        public static Expression NotEqual(Expression left, Expression right) => new ComparisonExpression(ComparisonType.NotEqual, left, right);
         public static Expression Greater(Expression left, Expression right) => new ComparisonExpression(ComparisonType.Greater, left, right);
         public static Expression GreaterEqual(Expression left, Expression right) => new ComparisonExpression(ComparisonType.GreaterEqual, left, right);
 

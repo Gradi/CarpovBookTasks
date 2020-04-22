@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Parsers\Lexer" />
+    <ProjectReference Include="..\StateMachinesBuilder\StateMachinesBuilder.csproj" />
   </ItemGroup>
 
 </Project>

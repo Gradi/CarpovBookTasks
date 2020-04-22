@@ -1,7 +1,4 @@
 namespace Milan.Expressions
 {
-    public abstract class Expression
-    {
-
-    }
+    public abstract class Expression { }
 }
