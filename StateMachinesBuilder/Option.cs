@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace StateMachinesBuilder
 {
@@ -23,6 +24,23 @@ namespace StateMachinesBuilder
             HasValue = hasValue;
             _value = value;
         }
+
+        public override string ToString() => HasValue ? Value.ToString() : null;
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Option<T> other)
+            {
+                if (!HasValue && !other.HasValue)
+                    return true;
+                if (!HasValue || !other.HasValue)
+                    return false;
+                return EqualityComparer<T>.Default.Equals(Value, other.Value);
+            }
+            return false;
+        }
+
+        public override int GetHashCode() => HasValue ? Value.GetHashCode() : 0;
 
         public static Option<T> WithValue(T value) => new Option<T>(true, value);
 
