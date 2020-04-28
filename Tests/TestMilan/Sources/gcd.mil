@@ -1,0 +1,12 @@
+begin
+m := read;
+n := read;
+while m <> n do
+    if m > n then
+        m := m - n
+    else
+        n := n - m
+    fi
+od
+write(m);
+end

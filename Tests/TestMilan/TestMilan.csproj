@@ -15,4 +15,10 @@
     <ProjectReference Include="..\..\Milan\Milan.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Sources/**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

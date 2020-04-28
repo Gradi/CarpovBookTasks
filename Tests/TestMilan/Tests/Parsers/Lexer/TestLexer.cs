@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Milan.Expressions.Enums;
 using Milan.Parsers.Lexer;
+using Milan.Parsers.Lexer.Enums;
 using Milan.Parsers.Lexer.Lexemes;
 using NUnit.Framework;
 using LF = Milan.Parsers.Lexer.Lexemes.LexemeFactory;
@@ -128,6 +129,32 @@ namespace TestMilan.Tests.Parsers.Lexer
             Assert.That(result.Count, Is.EqualTo(1));
             Assert.That(result[0], Is.TypeOf<OperatorLexeme>());
             return ((OperatorLexeme)result[0]).Type;
+        }
+
+        [Test]
+        public void GreatestCommonDivisor()
+        {
+            var expected = new Lexeme[]
+            {
+                LF.Keyword(KeywordType.Begin),
+
+                LF.Identifier("m"), LF.Assigment(), LF.Keyword(KeywordType.Read), LF.Semicolon(),
+                LF.Identifier("n"), LF.Assigment(), LF.Keyword(KeywordType.Read), LF.Semicolon(),
+
+                LF.Keyword(KeywordType.While), LF.Identifier("m"), LF.Comparison(ComparisonType.NotEqual), LF.Identifier("n"), LF.Keyword(KeywordType.Do),
+                    LF.Keyword(KeywordType.If), LF.Identifier("m"), LF.Comparison(ComparisonType.Greater), LF.Identifier("n"), LF.Keyword(KeywordType.Then),
+                        LF.Identifier("m"), LF.Assigment(), LF.Identifier("m"), LF.Operator(OperationType.Minus), LF.Identifier("n"),
+                    LF.Keyword(KeywordType.Else),
+                        LF.Identifier("n"), LF.Assigment(), LF.Identifier("n"), LF.Operator(OperationType.Minus), LF.Identifier("m"),
+                    LF.Keyword(KeywordType.Fi),
+                LF.Keyword(KeywordType.Od),
+                LF.Keyword(KeywordType.Write), LF.LeftBracket(), LF.Identifier("m"), LF.RightBracket(), LF.Semicolon(),
+
+                LF.Keyword(KeywordType.End)
+            };
+
+            var actual = LexemeParser.Parse(Sources.GreatestCommonDivisor).ToList();
+            Assert.That(actual, Is.EqualTo(expected).AsCollection);
         }
     }
 }
