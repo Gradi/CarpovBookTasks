@@ -11,7 +11,7 @@ using LF = Milan.Parsers.Lexer.Lexemes.LexemeFactory;
 namespace TestMilan.Tests.Parsers.Lexer
 {
     [TestFixture]
-    public class TestLexer
+    public class TestLexemeParser
     {
         [Test]
         public void ThrowsOnInvalidInput()
