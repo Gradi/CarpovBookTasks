@@ -10,13 +10,13 @@ namespace Milan
 
         public IReadOnlyCollection<Identifier> Identifiers { get; }
 
-        public IReadOnlyCollection<Statement> Statements { get; }
+        public StatementCollection Statements { get; }
 
         public Program
             (
                 IReadOnlyCollection<Constant> constants,
                 IReadOnlyCollection<Identifier> identifiers,
-                IReadOnlyCollection<Statement> statements
+                StatementCollection statements
             )
         {
             Constants = constants ?? throw new ArgumentNullException(nameof(constants));

@@ -30,6 +30,8 @@ namespace Milan
             return existing;
         }
 
+        public Constant GetOrAddConstant(int value) => GetOrAddConstant(new Constant(value));
+
         public Identifier GetOrAddIdentifier(Identifier identifier)
         {
             var existing = Identifiers.FirstOrDefault(i => i == identifier);
@@ -41,13 +43,15 @@ namespace Milan
             return existing;
         }
 
+        public Identifier GetOrAddIdentifier(string name) => GetOrAddIdentifier(new Identifier(name));
+
         public Program Build()
         {
             return new Program
                 (
                     Constants.ToArray(),
                     Identifiers.ToArray(),
-                    Statements.ToArray()
+                    new StatementCollection(Statements.ToArray())
                 );
         }
     }

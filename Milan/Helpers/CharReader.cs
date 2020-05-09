@@ -41,7 +41,7 @@ namespace Milan.Helpers
 
         public void Dispose()
         {
-            if (_isDisposed)
+            if (!_isDisposed)
             {
                 if (_disposeReader)
                     _reader.Dispose();

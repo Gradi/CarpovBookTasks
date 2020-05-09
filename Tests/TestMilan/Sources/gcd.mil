@@ -7,6 +7,6 @@ while m <> n do
     else
         n := n - m
     fi
-od
+od;
 write(m);
 end

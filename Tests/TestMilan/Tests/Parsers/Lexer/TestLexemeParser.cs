@@ -147,7 +147,7 @@ namespace TestMilan.Tests.Parsers.Lexer
                     LF.Keyword(KeywordType.Else),
                         LF.Identifier("n"), LF.Assigment(), LF.Identifier("n"), LF.Operator(OperationType.Minus), LF.Identifier("m"),
                     LF.Keyword(KeywordType.Fi),
-                LF.Keyword(KeywordType.Od),
+                LF.Keyword(KeywordType.Od), LF.Semicolon(),
                 LF.Keyword(KeywordType.Write), LF.LeftBracket(), LF.Identifier("m"), LF.RightBracket(), LF.Semicolon(),
 
                 LF.Keyword(KeywordType.End)

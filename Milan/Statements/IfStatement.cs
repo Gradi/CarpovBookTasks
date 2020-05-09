@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Milan.Expressions;
 
 namespace Milan.Statements
@@ -7,15 +6,15 @@ namespace Milan.Statements
     {
         public ComparisonExpression Condition { get; }
 
-        public IReadOnlyCollection<Statement> IfTrueStatements { get; }
+        public StatementCollection IfTrueStatements { get; }
 
-        public IReadOnlyCollection<Statement>? ElseStatements { get; }
+        public StatementCollection? ElseStatements { get; }
 
         public IfStatement
             (
                 ComparisonExpression condition,
-                IReadOnlyCollection<Statement> ifTrueStatements,
-                IReadOnlyCollection<Statement>? elseStatements = null
+                StatementCollection ifTrueStatements,
+                StatementCollection? elseStatements = null
             )
         {
             Condition = condition;

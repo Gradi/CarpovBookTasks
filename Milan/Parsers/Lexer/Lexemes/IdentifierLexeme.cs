@@ -9,8 +9,8 @@ namespace Milan.Parsers.Lexer.Lexemes
             Name = name;
         }
 
-        public override int GetHashCode() => Name.GetHashCode();
-
         protected override bool InnerEquals(Lexeme other) => Name == ((IdentifierLexeme)other).Name;
+
+        protected override int InnerGetHashCode() => Name?.GetHashCode() ?? 0;
     }
 }

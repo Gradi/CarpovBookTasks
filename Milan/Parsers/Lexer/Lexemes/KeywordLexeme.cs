@@ -26,10 +26,10 @@ namespace Milan.Parsers.Lexer.Lexemes
             Type = type;
         }
 
-        public override int GetHashCode() => Type.GetHashCode();
-
         public override string ToString() => Type.ToString().ToLowerFirstLetter();
 
         protected override bool InnerEquals(Lexeme other) => Type == ((KeywordLexeme)other).Type;
+
+        protected override int InnerGetHashCode() => Type.GetHashCode();
     }
 }
