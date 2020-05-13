@@ -7,12 +7,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.0-preview-20200428-01" />
+    <PackageReference Include="Moq" Version="4.14.1" />
     <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0-beta.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RomanNumbersParser\RomanNumbersParser.csproj" />
+    <ProjectReference Include="..\..\DummyVirtualMachine\DummyVirtualMachine.csproj" />
   </ItemGroup>
 
 </Project>

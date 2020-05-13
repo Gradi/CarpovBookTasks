@@ -6,7 +6,7 @@ using Milan.Parsers.Syntax;
 using Milan.Statements;
 using NUnit.Framework;
 
-namespace TestMilan.Tests.Syntax
+namespace TestMilan.Tests.Parsers.Syntax
 {
     [TestFixture]
     public class TestSyntaxParser
