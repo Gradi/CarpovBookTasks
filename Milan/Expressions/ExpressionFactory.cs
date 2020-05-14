@@ -13,7 +13,7 @@ namespace Milan.Expressions
         public static Expression Greater(Expression left, Expression right) => new ComparisonExpression(ComparisonType.Greater, left, right);
         public static Expression GreaterEqual(Expression left, Expression right) => new ComparisonExpression(ComparisonType.GreaterEqual, left, right);
 
-        public static Expression Identifer(Identifier identifier) => new IdentiferExpression(identifier);
+        public static Expression Identifier(Identifier identifier) => new IdentifierExpression(identifier);
 
         public static Expression Read() => new ReadExpression();
 

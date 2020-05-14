@@ -23,7 +23,7 @@ namespace DummyVirtualMachine
             _isDisposeStream = disposeStream;
         }
 
-        public void Seek(long position, SeekOrigin origin) => _stream.Seek(position, origin);
+        public void Seek(long position, SeekOrigin origin = SeekOrigin.Begin) => _stream.Seek(position, origin);
 
         public void Write(byte @byte) => _stream.WriteByte(@byte);
 

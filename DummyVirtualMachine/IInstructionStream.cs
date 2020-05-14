@@ -9,7 +9,7 @@ namespace DummyVirtualMachine
     {
         long Position { get; }
 
-        void Seek(long position, SeekOrigin origin);
+        void Seek(long position, SeekOrigin origin = SeekOrigin.Begin);
 
         void Write(byte @byte);
 

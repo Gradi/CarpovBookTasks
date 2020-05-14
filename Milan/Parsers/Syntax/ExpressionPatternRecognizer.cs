@@ -58,7 +58,7 @@ namespace Milan.Parsers.Syntax
                 return emptyResult;
 
             if (lexemes.Current is IdentifierLexeme identifierLexeme)
-                return ExpressionFactory.Identifer(programBuilder.GetOrAddIdentifier(identifierLexeme.Name));
+                return ExpressionFactory.Identifier(programBuilder.GetOrAddIdentifier(identifierLexeme.Name));
 
             if (lexemes.Current is ConstantLexeme constantLexeme)
                 return ExpressionFactory.Constant(programBuilder.GetOrAddConstant(constantLexeme.Value));

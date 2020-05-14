@@ -33,7 +33,7 @@ namespace DummyVirtualMachine.Instructions
             return Task.CompletedTask;
         }
 
-        public override string ToString() => $"{Mnemonic} {Pointer:X8}, {WordCount:X8}";
+        public override string ToString() => $"{Mnemonic} 0x{Pointer:X8}, 0x{WordCount:X8}";
 
         protected override bool InnerEquals(Instruction other)
         {

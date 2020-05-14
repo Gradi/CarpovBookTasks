@@ -1,10 +1,10 @@
 namespace Milan.Expressions
 {
-    public class IdentiferExpression : Expression
+    public class IdentifierExpression : Expression
     {
         public Identifier Identifier { get; }
 
-        public IdentiferExpression(Identifier identifier)
+        public IdentifierExpression(Identifier identifier)
         {
             Identifier = identifier;
         }

@@ -9,7 +9,7 @@ namespace DummyVirtualMachine
 {
     /// <summary>
     /// Stream writes text representation of data and instructions
-    /// in form of pseudo assembler.
+    /// in form of pseudo assembly.
     /// </summary>
     public class TextInstructionStream : IInstructionStream
     {
@@ -27,18 +27,18 @@ namespace DummyVirtualMachine
             _isDisposeWriter = disposeWriter;
         }
 
-        public void Seek(long position, SeekOrigin origin)
+        public void Seek(long position, SeekOrigin origin = SeekOrigin.Begin)
         {
+            long maxOffset = _data.Keys.Max();
+            maxOffset += _data.TryGetValue(maxOffset, out var lastData) ? lastData.Size : 0;
+
             position = origin switch
             {
                 SeekOrigin.Begin => position,
                 SeekOrigin.Current => Position + position,
-                SeekOrigin.End => throw new ArgumentOutOfRangeException(nameof(origin), "Can't seek text stream from end."),
+                SeekOrigin.End => maxOffset - position,
                 var val => throw new ArgumentOutOfRangeException(nameof(origin), $"Unsupported argument value ({val}).")
             };
-
-            long maxOffset = _data.Keys.Max();
-            maxOffset += _data[maxOffset].Size;
 
             // This weird check is just to make sure
             // that, in case we seek backwards, resulting position
@@ -47,7 +47,7 @@ namespace DummyVirtualMachine
             // [0+4], [4+11], [15+p],....
             // we can seek to any position after 15+p or any of 0, 4 and 15, but not in between.
             // Later, Write() methods check if we write to already occupied position, but new size != old size we throw an exception.
-            if (position != 0 && position <= maxOffset && !_data.ContainsKey(position))
+            if (position != 0 && position < maxOffset && !_data.ContainsKey(position))
             {
                 throw new ArgumentException($"Can't seek to {position} position from {Position}. You can only seek to already written positions. ");
             }
@@ -58,7 +58,7 @@ namespace DummyVirtualMachine
         public void Write(byte @byte)
         {
             CheckAndThrowOnUnalignedWrite(sizeof(byte));
-            _data[Position] = (@byte.ToString("X2"), sizeof(byte));
+            _data[Position] = ($"0x{@byte:X2}", sizeof(byte));
             Position += sizeof(byte);
         }
 
@@ -71,7 +71,7 @@ namespace DummyVirtualMachine
         public void Write(int word)
         {
             CheckAndThrowOnUnalignedWrite(sizeof(int));
-            _data[Position] = (word.ToString("X8"), sizeof(int));
+            _data[Position] = ($"0x{word:X8}", sizeof(int));
             Position += sizeof(int);
         }
 
@@ -104,7 +104,7 @@ namespace DummyVirtualMachine
             Array.Sort(keys);
             foreach (var offset in keys)
             {
-                _textWriter.Write($"{offset:X16} {_data[offset].Data}{Environment.NewLine}");
+                _textWriter.Write($"{offset:X8}: {_data[offset].Data}{Environment.NewLine}");
             }
             if (_isDisposeWriter)
             {

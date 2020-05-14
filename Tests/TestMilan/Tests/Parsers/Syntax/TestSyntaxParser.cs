@@ -25,7 +25,7 @@ namespace TestMilan.Tests.Parsers.Syntax
             var x = builder.GetOrAddIdentifier("x");
             var c = builder.GetOrAddConstant(123);
             builder.Statements.Add(new AssigmentStatement(x, ExpressionFactory.Constant(c)));
-            builder.Statements.Add(new WriteStatement(ExpressionFactory.Identifer(x)));
+            builder.Statements.Add(new WriteStatement(ExpressionFactory.Identifier(x)));
             var expected = builder.Build();
 
             var actual = SyntaxParser.Parse(source);
@@ -66,17 +66,17 @@ namespace TestMilan.Tests.Parsers.Syntax
             var c2 = builder.GetOrAddConstant(2);
             var c123 = builder.GetOrAddConstant(123);
             builder.Statements.Add(new AssigmentStatement(x, ExpressionFactory.Read()));
-            builder.Statements.Add(new IfStatement(new ComparisonExpression(ComparisonType.Equal, ExpressionFactory.Identifer(x), ExpressionFactory.Constant(c0)), new StatementCollection(new []
+            builder.Statements.Add(new IfStatement(new ComparisonExpression(ComparisonType.Equal, ExpressionFactory.Identifier(x), ExpressionFactory.Constant(c0)), new StatementCollection(new []
             {
-                new WriteStatement(ExpressionFactory.Plus(ExpressionFactory.Identifer(x), ExpressionFactory.Constant(c1))),
-                new WriteStatement(ExpressionFactory.Plus(ExpressionFactory.Identifer(x), ExpressionFactory.Constant(c2))),
-                new WriteStatement(ExpressionFactory.Plus(ExpressionFactory.Identifer(x), ExpressionFactory.Read())),
+                new WriteStatement(ExpressionFactory.Plus(ExpressionFactory.Identifier(x), ExpressionFactory.Constant(c1))),
+                new WriteStatement(ExpressionFactory.Plus(ExpressionFactory.Identifier(x), ExpressionFactory.Constant(c2))),
+                new WriteStatement(ExpressionFactory.Plus(ExpressionFactory.Identifier(x), ExpressionFactory.Read())),
             }), new StatementCollection(new []
             {
-                new IfStatement(new ComparisonExpression(ComparisonType.Equal, ExpressionFactory.Identifer(x), ExpressionFactory.Constant(c1)), new StatementCollection(new []
+                new IfStatement(new ComparisonExpression(ComparisonType.Equal, ExpressionFactory.Identifier(x), ExpressionFactory.Constant(c1)), new StatementCollection(new []
                 {
-                    new WriteStatement(ExpressionFactory.Multiply(ExpressionFactory.Identifer(x), ExpressionFactory.Constant(c1))),
-                    new WriteStatement(ExpressionFactory.Multiply(ExpressionFactory.Identifer(x), ExpressionFactory.Constant(c2))),
+                    new WriteStatement(ExpressionFactory.Multiply(ExpressionFactory.Identifier(x), ExpressionFactory.Constant(c1))),
+                    new WriteStatement(ExpressionFactory.Multiply(ExpressionFactory.Identifier(x), ExpressionFactory.Constant(c2))),
                     new WriteStatement(ExpressionFactory.Plus(ExpressionFactory.Multiply(ExpressionFactory.Read(), ExpressionFactory.Read()), ExpressionFactory.Constant(c123))),
                 }) ),
             })));
