@@ -41,7 +41,7 @@ namespace Milan.Parsers.Syntax
                     if (!rightExpr.HasValue)
                         return Fail(rightExpr);
 
-                    result = new MathExpression(operatorLexeme.Type, result, rightExpr.Value);
+                    result = ExpressionFactory.Math(operatorLexeme.Type, result, rightExpr.Value);
                 }
                 else
                 {

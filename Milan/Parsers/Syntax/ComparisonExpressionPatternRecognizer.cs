@@ -24,7 +24,7 @@ namespace Milan.Parsers.Syntax
             if (!rightExpression.HasValue)
                 return Fail(rightExpression);
 
-            return new ComparisonExpression(comparisonLexeme.Type, leftExpression.Value, rightExpression.Value);
+            return ExpressionFactory.Comparison(comparisonLexeme.Type, leftExpression.Value, rightExpression.Value);
         }
     }
 }
