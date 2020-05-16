@@ -33,5 +33,5 @@ Milan compiler. Wrapper around Milan project that compiles source code into dumm
 
 ## dvm
 
-Wrapper around DummyVirtualMachine that loads and executes binaries produces by milc. It has some methods
+Wrapper around DummyVirtualMachine that loads and executes binaries produced by milc. It has some methods
 to debug running application.
