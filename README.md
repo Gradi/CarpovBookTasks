@@ -1,19 +1,19 @@
 # Description
 
 This repository contains tasks from book "Ю.Г. Карпов -- Основы построения трансляторов"
-(Not all of them cause i'm lazy :)
+(Not all of them cause i'm lazy :).
 
 ## PrinterNumsLangParser
 
-Project contains parser for a range of numbers like `1,2,4-7,9`
+Project contains parser for a range of numbers like `1,2,4-7,9`.
 
 ## RomanNumbersParser
 
-Contains parse for roman numbers. I'm not sure about it's correctness.
+Contains parser for roman numbers. I'm not sure about it's correctness.
 
 ## StateMachinesBuilder
 
-Contains helper class `SMachine` to simplify state machine creation
+Contains helper class `SMachine` to simplify state machine creation.
 
 ## GrammarLib
 
