@@ -37,16 +37,28 @@ namespace milc
             foreach (var statement in ifStatement.IfTrueStatements)
                 Visit(statement);
 
-            var afterIfPosition = _instructionStream.Position;
-            _instructionStream.Seek(ifFalseJumpPosition);
-            _instructionStream.Write(IF.Jmp0((int)afterIfPosition));
-            _instructionStream.Seek(0, SeekOrigin.End);
-
+            var ifBodyEndPos = _instructionStream.Position;
             if (ifStatement.ElseStatements != null)
             {
-                foreach (var elseStatement in ifStatement.ElseStatements)
-                    Visit(elseStatement);
+                _instructionStream.Write(IF.Jmp(0));
+                var elseStartPos = _instructionStream.Position;
+
+                foreach (var statement in ifStatement.ElseStatements)
+                    Visit(statement);
+
+                var elseBodyEnsPos = _instructionStream.Position;
+                _instructionStream.Seek(ifBodyEndPos);
+                _instructionStream.Write(IF.Jmp((int)elseBodyEnsPos));
+
+                _instructionStream.Seek(ifFalseJumpPosition);
+                _instructionStream.Write(IF.Jmp0((int)elseStartPos));
             }
+            else
+            {
+                _instructionStream.Seek(ifFalseJumpPosition);
+                _instructionStream.Write(IF.Jmp0((int)ifBodyEndPos));
+            }
+            _instructionStream.Seek(0, SeekOrigin.End);
         }
 
         private void VisitWhileStatement(WhileStatement whileStatement)
