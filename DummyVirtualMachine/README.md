@@ -1,4 +1,5 @@
 # Dummy virtual machine
+
 Dummy virtual machine (dvm) is a simple stack vm described in book with some
 additional instructions to control stack location and size.
 
@@ -28,5 +29,3 @@ DIV         | 0x0B                          | Pops two words, first word is divi
 MOD         | 0x0C                          | Pops two words, first word is modulo divided by second and result is pushed to the stack | MOD
 CMP `i`     | 0x0D `i`                      | Pops two words, performs comparison and result `0`(false) or `1`(true) is pushed to the stack. `i` defines type of comparison and has 8-bit unsigned size. `i=0` for `equality`, `i=1` for `not equal`, `i=2` for `less than`, `i=3` for `greater than`, `i=4` for `less or equal than`, `i=5` for `greater or equal than`. | CMP 0x5
 STK `m` `a` | 0x0E \<pointer> \<word-count> | Sets stack location and size. Operands are 32-bit signed integers (however values can't be negative). | STK 0x00000F00 0x0000000F
-
-
