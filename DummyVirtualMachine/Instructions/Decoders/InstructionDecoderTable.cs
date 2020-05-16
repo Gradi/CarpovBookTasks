@@ -21,7 +21,7 @@ namespace DummyVirtualMachine.Instructions.Decoders
 
         public InstructionDecoderTable()
         {
-            _decoders = new IInstructionDecoder[(int)byte.MaxValue];
+            _decoders = new IInstructionDecoder[(int)byte.MaxValue + 1];
             _decoders[0x00] = new HltInstructionDecoder();
             _decoders[0x01] = new JmpInstructionDecoder();
             _decoders[0x02] = new Jmp0InstructionDecoder();

@@ -9,7 +9,7 @@ namespace TestMilan
 
         static Sources()
         {
-            var sourceDir = Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(Sources)).Location), "Sources");
+            var sourceDir = Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(Sources))!.Location)!, "Sources");
 
             GreatestCommonDivisor = File.ReadAllText(Path.Combine(sourceDir, "gcd.mil"));
         }

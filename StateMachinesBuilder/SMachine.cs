@@ -12,13 +12,13 @@ namespace StateMachinesBuilder
     public abstract class SMachine<TIn, TOut>
     {
         private State _state;
-        private Action<Option<TIn>> _stateFunc;
-        private Action _endFunc;
+        private Action<Option<TIn>>? _stateFunc;
+        private Action? _endFunc;
 
-        private Stack<TIn> _returnedInputs;
+        private Stack<TIn>? _returnedInputs;
         private Option<TOut> _outResult;
 
-        private IEnumerator<TIn> _inputEnumerator;
+        private IEnumerator<TIn>? _inputEnumerator;
 
         public IEnumerable<TOut> Run(IEnumerable<TIn> inputs)
         {
@@ -62,9 +62,9 @@ namespace StateMachinesBuilder
             _state = State.End;
         }
 
-        protected virtual void YieldResult(TOut outResult) => _outResult = outResult;
+        protected virtual void YieldResult(TOut outResult) => _outResult = outResult!;
 
-        protected virtual void Return(TIn input) => _returnedInputs.Push(input);
+        protected virtual void Return(TIn input) => _returnedInputs!.Push(input);
 
         private void Init(IEnumerable<TIn> inputs)
         {
@@ -85,10 +85,10 @@ namespace StateMachinesBuilder
             switch (_state)
             {
                 case State.Running:
-                    _stateFunc(input);
+                    _stateFunc!(input);
                     break;
                 case State.End:
-                    _endFunc();
+                    _endFunc!();
                     _state = State.PostEnd;
                     break;
                 case State.PostEnd:
@@ -100,10 +100,10 @@ namespace StateMachinesBuilder
 
         private Option<TIn> GetInput()
         {
-            if (_returnedInputs.TryPop(out var result))
-                return result;
-            else if (_inputEnumerator.MoveNext())
-                return _inputEnumerator.Current;
+            if (_returnedInputs!.TryPop(out var result))
+                return result!;
+            else if (_inputEnumerator!.MoveNext())
+                return _inputEnumerator!.Current!;
             else
                 return Option<TIn>.Empty();
         }

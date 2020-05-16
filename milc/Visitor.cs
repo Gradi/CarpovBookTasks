@@ -14,7 +14,6 @@ namespace milc
 
         protected Visitor(bool throwOnMissingVisitor = true)
         {
-
             var thisType = GetType();
             var genericType = typeof(T);
 

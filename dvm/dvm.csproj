@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DummyVirtualMachine\DummyVirtualMachine.csproj" />
-    <ProjectReference Include="..\Milan\Milan.csproj" />
   </ItemGroup>
 
 </Project>

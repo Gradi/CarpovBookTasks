@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDummyVirtualMachine", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "milc", "milc\milc.csproj", "{E852463E-80D0-4892-91F1-5D406FF283BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dvm", "dvm\dvm.csproj", "{6CC06B5F-9368-49B9-9827-21856C324EC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -186,6 +188,18 @@ Global
 		{E852463E-80D0-4892-91F1-5D406FF283BD}.Release|x64.Build.0 = Release|Any CPU
 		{E852463E-80D0-4892-91F1-5D406FF283BD}.Release|x86.ActiveCfg = Release|Any CPU
 		{E852463E-80D0-4892-91F1-5D406FF283BD}.Release|x86.Build.0 = Release|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Debug|x64.Build.0 = Debug|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Debug|x86.Build.0 = Debug|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Release|x64.ActiveCfg = Release|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Release|x64.Build.0 = Release|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Release|x86.ActiveCfg = Release|Any CPU
+		{6CC06B5F-9368-49B9-9827-21856C324EC1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AE40024D-DC0A-48C1-A96C-097D75033642} = {E03AE315-198F-49EC-B1D0-76318485C923}

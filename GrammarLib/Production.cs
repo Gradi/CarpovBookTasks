@@ -31,7 +31,7 @@ namespace GrammarLib
 
         public override string ToString() => $"{Left} -> {Right}";
 
-        public static bool operator==(Production left, Production right)
+        public static bool operator==(Production? left, Production? right)
         {
             if (ReferenceEquals(left, null) && ReferenceEquals(right, null))
                 return true;
@@ -40,6 +40,6 @@ namespace GrammarLib
             return left.Equals(right);
         }
 
-        public static bool operator!=(Production left, Production right) => !(left == right);
+        public static bool operator!=(Production? left, Production? right) => !(left == right);
     }
 }

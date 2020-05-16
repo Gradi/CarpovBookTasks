@@ -27,7 +27,7 @@ namespace GrammarLib
 
         public override string ToString() => Value;
 
-        public static bool operator==(Symbol left, Symbol right)
+        public static bool operator==(Symbol? left, Symbol? right)
         {
             if (ReferenceEquals(left, null) && ReferenceEquals(right, null))
                 return true;
@@ -36,6 +36,6 @@ namespace GrammarLib
             return left.Equals(right);
         }
 
-        public static bool operator!=(Symbol left, Symbol right) => !(left == right);
+        public static bool operator!=(Symbol? left, Symbol? right) => !(left == right);
     }
 }

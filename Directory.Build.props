@@ -1,5 +1,6 @@
 <Project>
   <PropertyGroup>
+    <Nullable>enable</Nullable>
     <LangVersion>preview</LangVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>CS1591;$(NoWarn)</NoWarn>

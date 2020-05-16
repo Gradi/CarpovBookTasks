@@ -25,7 +25,7 @@ namespace StateMachinesBuilder
             _value = value;
         }
 
-        public override string ToString() => HasValue ? Value.ToString() : null;
+        public override string? ToString() => HasValue ? Value?.ToString() : null;
 
         public override bool Equals(object obj)
         {
@@ -40,11 +40,11 @@ namespace StateMachinesBuilder
             return false;
         }
 
-        public override int GetHashCode() => HasValue ? Value.GetHashCode() : 0;
+        public override int GetHashCode() => HasValue ? Value?.GetHashCode() ?? 0 : 0;
 
         public static Option<T> WithValue(T value) => new Option<T>(true, value);
 
-        public static Option<T> Empty() => new Option<T>(false, default);
+        public static Option<T> Empty() => new Option<T>(false, default!);
 
         public static implicit operator Option<T>(T value) => WithValue(value);
     }

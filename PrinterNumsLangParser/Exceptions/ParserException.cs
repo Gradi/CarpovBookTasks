@@ -4,7 +4,7 @@ namespace PrinterNumsLangParser.Exceptions
 {
     public class ParserException : Exception
     {
-        public string Input { get; }
+        public string? Input { get; }
 
         internal ParserException(string message) : base(message) {}
 

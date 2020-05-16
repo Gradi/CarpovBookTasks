@@ -11,7 +11,7 @@ namespace TestDummyVirtualMachine.Tests.Instructions.Decoders
     {
         private const int Expected = Int32.MaxValue - 124;
 
-        private Mock<IOSystem> _ioSystem;
+        private Mock<IOSystem> _ioSystem = null!;
 
         [Test]
         public void Prn()

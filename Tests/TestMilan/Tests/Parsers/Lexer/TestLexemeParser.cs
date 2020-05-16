@@ -16,8 +16,8 @@ namespace TestMilan.Tests.Parsers.Lexer
         [Test]
         public void ThrowsOnInvalidInput()
         {
-            Assert.That(() => LexemeParser.Parse(null as TextReader), Throws.TypeOf<ArgumentNullException>());
-            Assert.That(() => LexemeParser.Parse(null as string), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => LexemeParser.Parse((null as TextReader)!), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => LexemeParser.Parse((null as string)!), Throws.TypeOf<ArgumentNullException>());
             Assert.That(() => LexemeParser.Parse(""), Throws.TypeOf<ArgumentNullException>());
             Assert.That(() => LexemeParser.Parse("   "), Throws.TypeOf<ArgumentNullException>());
             Assert.That(() => LexemeParser.Parse("   \n\n\r\t"), Throws.TypeOf<ArgumentNullException>());

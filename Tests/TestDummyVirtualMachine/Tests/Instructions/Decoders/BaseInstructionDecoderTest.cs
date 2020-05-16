@@ -18,6 +18,7 @@ namespace TestDummyVirtualMachine.Tests.Instructions.Decoders
         protected BaseInstructionDecoderTest()
         {
             _decoderTable = new InstructionDecoderTable();
+            _machine = null!;
         }
 
         [SetUp]

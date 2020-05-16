@@ -5,12 +5,12 @@ namespace GrammarLib.Builder
 {
     public class GrammarBuilder : IProductionBuilder
     {
-        private NonTerminal _startSymbol;
+        private NonTerminal? _startSymbol;
         private readonly List<Production> _productions;
 
-        private ICollection<Symbol> _fromSymbols;
-        private ICollection<Symbol> _toSymbols;
-        private ICollection<Symbol> _currentSymbolsCollection;
+        private ICollection<Symbol>? _fromSymbols;
+        private ICollection<Symbol>? _toSymbols;
+        private ICollection<Symbol>? _currentSymbolsCollection;
 
         public GrammarBuilder()
         {
@@ -41,7 +41,7 @@ namespace GrammarLib.Builder
                 throw new ArgumentNullException(nameof(value));
 
             var symbol = new Terminal(value);
-            _currentSymbolsCollection.Add(symbol);
+            _currentSymbolsCollection!.Add(symbol);
             return this;
         }
 
@@ -51,7 +51,7 @@ namespace GrammarLib.Builder
                 throw new ArgumentNullException(nameof(value));
 
             var symbol = new NonTerminal(value);
-            _currentSymbolsCollection.Add(symbol);
+            _currentSymbolsCollection!.Add(symbol);
             return this;
         }
 
@@ -63,14 +63,14 @@ namespace GrammarLib.Builder
 
         GrammarBuilder IProductionBuilder.Done()
         {
-            _productions.Add(new Production(new SymbolCollection(_fromSymbols), new SymbolCollection(_toSymbols)));
+            _productions.Add(new Production(new SymbolCollection(_fromSymbols!), new SymbolCollection(_toSymbols!)));
             return this;
         }
 
         public Grammar Build()
         {
             ValidateAndThrow();
-            return new Grammar(_startSymbol, _productions);
+            return new Grammar(_startSymbol!, _productions);
         }
 
         private void ValidateAndThrow()

@@ -93,13 +93,13 @@ namespace PrinterNumsLangParser
             }
             else if (_currentChar == '-')
             {
-                _startBuf = _numberBuf.Value;
+                _startBuf = _numberBuf!.Value;
                 _numberBuf = null;
                 _state = State.Dash;
             }
             else if (_currentChar == ',')
             {
-                _startBuf = _numberBuf.Value;
+                _startBuf = _numberBuf!.Value;
                 _state = State.EntryComplete;
             }
             else

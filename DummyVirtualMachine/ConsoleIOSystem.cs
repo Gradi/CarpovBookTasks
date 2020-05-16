@@ -10,7 +10,7 @@ namespace DummyVirtualMachine
         {
             while (true)
             {
-                Console.WriteLine("-> ");
+                Console.Write("-> ");
                 if (int.TryParse(Console.ReadLine(), out int result))
                 {
                     return result;

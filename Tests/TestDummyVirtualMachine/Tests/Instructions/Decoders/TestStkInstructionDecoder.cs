@@ -11,7 +11,7 @@ namespace TestDummyVirtualMachine.Tests.Instructions.Decoders
         public void Stk()
         {
             Assert.That(_machine.Stack, Is.Not.Null);
-            Assert.That(_machine.Stack.Count, Is.Zero);
+            Assert.That(_machine.Stack!.Count, Is.Zero);
             Assert.That(_machine.Stack.MaxElements, Is.EqualTo(1));
             Assert.That(_machine.InstructionPointer, Is.EqualTo(IF.Stk(0, 0).ByteSize));
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace DummyVirtualMachine
 {
@@ -57,6 +58,18 @@ namespace DummyVirtualMachine
             }
             result = default;
             return false;
+        }
+
+        public IReadOnlyCollection<T> DumpValues()
+        {
+            var oldCount = Count;
+            var results = new List<T>(Count);
+
+            while(TryPop(out var item))
+                results.Add(item);
+
+            Count = oldCount;
+            return results;
         }
 
         public void Clear()

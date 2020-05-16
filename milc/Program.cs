@@ -39,6 +39,7 @@ namespace milc
                 memoryStream.OnClose += (sender, memStream) =>
                 {
                     using var gzipStream = new GZipStream(fileStream, CompressionLevel.Optimal);
+                    memStream.Seek(0, SeekOrigin.Begin);
                     memStream.CopyTo(gzipStream);
                 };
                 outputStream = memoryStream;
