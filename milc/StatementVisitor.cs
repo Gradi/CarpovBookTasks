@@ -28,7 +28,7 @@ namespace milc
             _instructionStream.Write(IF.St(_identifiersOffsets[assigment.Target]));
         }
 
-        private void VisitIfStatemetnt(IfStatement ifStatement)
+        private void VisitIfStatement(IfStatement ifStatement)
         {
             _expressionVisitor.Visit(ifStatement.Condition);
             var ifFalseJumpPosition = _instructionStream.Position;
